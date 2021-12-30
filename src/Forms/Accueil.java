@@ -33,7 +33,6 @@ public class Accueil extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         back2_Acc = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -58,23 +57,15 @@ public class Accueil extends javax.swing.JInternalFrame {
 
         back2_Acc.setBackground(new java.awt.Color(91, 117, 126));
 
-        jLabel2.setText("hart here hhhhh");
-
         javax.swing.GroupLayout back2_AccLayout = new javax.swing.GroupLayout(back2_Acc);
         back2_Acc.setLayout(back2_AccLayout);
         back2_AccLayout.setHorizontalGroup(
             back2_AccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(back2_AccLayout.createSequentialGroup()
-                .addGap(252, 252, 252)
-                .addComponent(jLabel2)
-                .addContainerGap(613, Short.MAX_VALUE))
+            .addGap(0, 950, Short.MAX_VALUE)
         );
         back2_AccLayout.setVerticalGroup(
             back2_AccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(back2_AccLayout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jLabel2)
-                .addContainerGap(191, Short.MAX_VALUE))
+            .addGap(0, 276, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -95,7 +86,6 @@ public class Accueil extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel back2_Acc;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
