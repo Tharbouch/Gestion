@@ -10,7 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 /**
  *
- * @author brahi
+ * @author brahim & taha
  */
 public class Fournisseur extends javax.swing.JInternalFrame {
 
@@ -360,7 +360,6 @@ public class Fournisseur extends javax.swing.JInternalFrame {
     }                                         
     }//GEN-LAST:event_SUPPRIMER_COMMouseClicked
    
-    
     public void getdata(){
         
         connect connection = new connect();

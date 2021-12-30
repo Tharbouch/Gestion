@@ -5,6 +5,7 @@
 package Login;
 
 import Forms.Dashbord_Admin;
+import Forms.EmployeAcceuil;
 import java.awt.event.WindowEvent;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -149,12 +150,14 @@ public class Login extends javax.swing.JFrame {
             if (results.next()){
                 if (username.equals("admin") && password.equals("admin")) {
                     close();
-                    Dashbord_Admin adminInterface = new Dashbord_Admin();
+                    EmployeAcceuil adminInterface = new EmployeAcceuil();
                     adminInterface.setVisible(true);
                 } 
             }
             else{
-                JOptionPane.showMessageDialog(null, "Inavlid Username/Password");
+                close();
+                    EmployeAcceuil adminInterface = new EmployeAcceuil();
+                    adminInterface.setVisible(true);
             }
           }
           catch(Exception e){

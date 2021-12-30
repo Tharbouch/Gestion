@@ -20,34 +20,7 @@ public class homeemp extends javax.swing.JInternalFrame {
      */
     public homeemp() {
         initComponents();
-        tableremplissage();
-//        set value to labels de nombre de  produit fournisseur category 
-     Connection connection = new Connection();
-        connection.connectionDb();
-        try{
-            
-            String sql = "SELECT COUNT(ProductName) FROM PRODUCT";
-            
-            connection.Rs = connection.stat.executeQuery(sql);
-            jLabel2.setText(""+connection.Rs);
-            
-            sql = "SELECT COUNT* FROM FOURNISSEUR";
-            
-            connection.Rs = connection.stat.executeQuery(sql);
-            jLabel5.setText(""+connection.Rs);
-            
-            sql = "SELECT COUNT* FROM CATEGORY";
-            
-            connection.Rs = connection.stat.executeQuery(sql);
-            jLabel7.setText(""+connection.Rs);
-            
-            connection.deconnectionDb();
-           
-        }
-        catch(Exception e) {System.out.println(e);
-    }                                         
-        
-    
+        getdata();
     }
 
     /**
@@ -208,11 +181,6 @@ public class homeemp extends javax.swing.JInternalFrame {
         jTextField1.setBackground(new java.awt.Color(228, 235, 243));
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setText("Le nom du produit");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(228, 235, 243));
@@ -222,11 +190,6 @@ public class homeemp extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Rechercher");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -277,14 +240,14 @@ public class homeemp extends javax.swing.JInternalFrame {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(68, 68, 68)
+                .addGap(77, 77, 77)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(34, 34, 34)
+                .addGap(70, 70, 70)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -300,75 +263,102 @@ public class homeemp extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-//    button de recherche
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        Connection connection = new Connection();
-        connection.connectionDb();
-        try{
-            String name = jTextField1.getText();
-            String sql = "SELECT * FROM PRODUCT WHERE ProductName = "+name;
-            
-            connection.Rs = connection.stat.executeQuery(sql);
-            
-            String columns[] = { "ProductName", "ProductCategory", "Fournisseur" , "Qte"};
-            String data[][] = new String[20][4];
-            
-      
-            
-            int i = 0;
-            while (connection.Rs.next()) {
-              String Produit = connection.Rs.getString("ProductName");
-              String category = connection.Rs.getString("ProductCategory");
-              String four = connection.Rs.getString("Fournisseur");
-              int Qte = connection.Rs.getInt("Qte");
-              data[i][0] = Produit;
-              data[i][1] = category;
-              data[i][2] = four;
-              data[i][3] = Qte + "";
-              i++;
-            }
-            connection.deconnectionDb();
-            jTable1.setModel(new DefaultTableModel(data, columns));
-        }
-        catch(Exception e) {System.out.println(e);
-    }   
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-//    remplissage de tableau 
-    public void tableremplissage(){
-        
-        Connection connection = new Connection();
-        connection.connectionDb();
+    
+    public void countProduct(){
+        connect connection = new connect();
+        connection.connectDb();
         try{
             String sql = "SELECT * FROM PRODUCT";
-            connection.stat = connection.connection.createStatement();
+            connection.stm = connection.connect.createStatement();
             
-            connection.Rs = connection.stat.executeQuery(sql);
+            connection.result = connection.stm.executeQuery(sql);
             
-            String columns[] = { "ProductName", "ProductCategory", "Fournisseur" , "Qte"};
+            connection.result.next();
+            
+            int count = connection.result.getInt(1);
+            
+            jLabel2.setText(""+count);
+            
+            connection.deconnectDb();
+            
+        }
+        catch(Exception e) {System.out.println(e);}       
+    }
+    
+    public void countFournisseur(){
+        
+        connect connection = new connect();
+        connection.connectDb();
+        try{
+            
+            String sql = "SELECT * FROM COMPANY";
+            connection.stm = connection.connect.createStatement();
+            
+            connection.result = connection.stm.executeQuery(sql);
+            
+            connection.result.next();
+            
+            int count = connection.result.getInt(1);
+            
+            jLabel2.setText(""+count);
+            
+            connection.deconnectDb();
+            
+        }
+        catch(Exception e) {System.out.println(e);}     
+    }
+    
+    public void countCategory(){
+        connect connection = new connect();
+        connection.connectDb();
+        try{
+            
+            String sql = "SELECT distinct(ProductCategory) FROM PRODUCT ";
+            connection.stm = connection.connect.createStatement();
+            
+            connection.result = connection.stm.executeQuery(sql);
+            
+            connection.result.next();
+            
+            int count = connection.result.getInt(1);
+            
+            jLabel3.setText(""+count);
+            
+            connection.deconnectDb();
+            
+        }
+        catch(Exception e) {System.out.println(e);} 
+    }
+    
+    
+    public void getdata(){
+        
+        connect connection = new connect();
+        connection.connectDb();
+        try{
+            String sql = "SELECT * FROM PRODUCT";
+            connection.stm = connection.connect.createStatement();
+            
+            connection.result = connection.stm.executeQuery(sql);
+            
+            String columns[] = { "ProductId", "ProductName", "ProductCategory", "QTY" ,"CompanyName"};
             String data[][] = new String[20][4];
             
-      
-            
             int i = 0;
-            while (connection.Rs.next()) {
-              String Produit = connection.Rs.getString("ProductName");
-              String category = connection.Rs.getString("ProductCategory");
-              String four = connection.Rs.getString("Fournisseur");
-              int Qte = connection.Rs.getInt("Qte");
-              data[i][0] = Produit;
-              data[i][1] = category;
-              data[i][2] = four;
-              data[i][3] = Qte + "";
+            while (connection.result.next()) {
+              int id = connection.result.getInt("ProductId");
+              String nom = connection.result.getString("ProductName");
+              String category = connection.result.getString("ProductCategory");
+              int qty = connection.result.getInt("QTY");
+              String companyName = connection.result.getString("CompanyName");
+              data[i][0] = id + "";
+              data[i][1] = nom;
+              data[i][2] = category;
+              data[i][3] = qty+"";
+              data[i][4] = companyName;
               i++;
             }
-            connection.deconnectionDb();
+            connection.deconnectDb();
             jTable1.setModel(new DefaultTableModel(data, columns));
         }
         catch(Exception e) {System.out.println(e);
