@@ -326,7 +326,7 @@ public void countProduct(){
             connection.result = connection.stm.executeQuery(sql);
             
             String columns[] = { "ProductId", "ProductName", "ProductCategory", "QTY" ,"CompanyName"};
-            String data[][] = new String[20][4];
+            String data[][] = new String[20][5];
             
             int i = 0;
             while (connection.result.next()) {

@@ -164,7 +164,7 @@ public class supprime extends javax.swing.JInternalFrame {
         
         try{
 
-            String sql = "DELETE FROM COMPANY WHERE CompanyId ="+id;
+            String sql = "DELETE FROM PRODUCT WHERE ProductId ="+id;
 
             connection.preparedstm = connection.connect.prepareStatement(sql);
             
@@ -194,7 +194,7 @@ public void getdata(){
             connection.result = connection.stm.executeQuery(sql);
             
             String columns[] = { "ProductId", "ProductName", "ProductCategory","QTY", "CompanyName" };
-            String data[][] = new String[20][4];
+            String data[][] = new String[20][5];
             
             int i = 0;
             while (connection.result.next()) {
