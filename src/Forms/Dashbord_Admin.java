@@ -34,7 +34,7 @@ public class Dashbord_Admin extends javax.swing.JFrame {
         accueil1 = new Forms.Accueil();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(420, 180));
+        setLocation(new java.awt.Point(0, 0));
         setUndecorated(true);
 
         Global_container.setBackground(new java.awt.Color(0, 0, 0));
