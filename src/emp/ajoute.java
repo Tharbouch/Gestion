@@ -1,4 +1,4 @@
-package Forms;
+package emp;
 
 
 import Login.connect;
@@ -18,6 +18,7 @@ public class ajoute extends javax.swing.JInternalFrame {
     
     public ajoute() {
         initComponents();
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
     }
 
     /**

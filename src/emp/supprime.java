@@ -1,4 +1,4 @@
-package Forms;
+package emp;
 
 
 import Login.connect;
@@ -21,10 +21,11 @@ public class supprime extends javax.swing.JInternalFrame {
     
     
     /**
-     * Creates new form supprimer
+     * Creates new form 
      */
     public supprime() {
         initComponents();
+        ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         getdata();
     }
 

@@ -1,6 +1,8 @@
-package Forms;
+package emp;
 
+import Login.Login;
 import Login.connect;
+import emp.empHome;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -54,6 +56,7 @@ public class EmployeAcceuil extends javax.swing.JFrame {
         SupprimerBtn = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        empHome1 = new emp.empHome();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(420, 180));
@@ -86,6 +89,11 @@ public class EmployeAcceuil extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(228, 235, 243));
         jButton3.setText("Deconnexion");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         HomeBtn.setBackground(new java.awt.Color(48, 130, 176));
         HomeBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -101,12 +109,22 @@ public class EmployeAcceuil extends javax.swing.JFrame {
         AjouterBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         AjouterBtn.setForeground(new java.awt.Color(228, 235, 243));
         AjouterBtn.setText("Ajouter");
+        AjouterBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AjouterBtnMouseClicked(evt);
+            }
+        });
 
         SupprimerBtn.setBackground(new java.awt.Color(48, 130, 176));
         SupprimerBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         SupprimerBtn.setForeground(new java.awt.Color(228, 235, 243));
         SupprimerBtn.setText("Supprimer");
         SupprimerBtn.setToolTipText("");
+        SupprimerBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SupprimerBtnMouseClicked(evt);
+            }
+        });
 
         jLabel9.setBackground(new java.awt.Color(204, 204, 204));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -180,17 +198,10 @@ public class EmployeAcceuil extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, 720));
 
         jPanel4.setBackground(new java.awt.Color(91, 117, 126));
+        jPanel4.setLayout(new javax.swing.OverlayLayout(jPanel4));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1080, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
-        );
+        empHome1.setVisible(true);
+        jPanel4.add(empHome1);
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 1080, 720));
 
@@ -199,8 +210,35 @@ public class EmployeAcceuil extends javax.swing.JFrame {
 
     private void HomeBtnKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_HomeBtnKeyPressed
         // TODO add your handling code here:
+        jPanel4.removeAll();
+        empHome emp = new empHome();
+        jPanel4.add(emp);
+        emp.setVisible(true);
         
     }//GEN-LAST:event_HomeBtnKeyPressed
+
+    private void AjouterBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjouterBtnMouseClicked
+        // TODO add your handling code here:
+        jPanel4.removeAll();
+        ajoute aj = new ajoute();
+        jPanel4.add(aj);
+        aj.setVisible(true);
+    }//GEN-LAST:event_AjouterBtnMouseClicked
+
+    private void SupprimerBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SupprimerBtnMouseClicked
+        // TODO add your handling code here:
+        jPanel4.removeAll();
+        supprime sp = new supprime();
+        jPanel4.add(sp);
+        sp.setVisible(true);
+    }//GEN-LAST:event_SupprimerBtnMouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        dispose();
+        Login l = new Login() ;
+        l.setVisible(true);
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -236,7 +274,7 @@ public class EmployeAcceuil extends javax.swing.JFrame {
                 EmployeAcceuil A = new EmployeAcceuil();
                 A.setVisible(true);
                 empHome hj = new empHome();
-                A.jPanel2.add(hj);
+                A.jPanel4.add(hj);
                 hj.show();
             }
         });
@@ -246,6 +284,7 @@ public class EmployeAcceuil extends javax.swing.JFrame {
     private javax.swing.JButton AjouterBtn;
     private javax.swing.JButton HomeBtn;
     private javax.swing.JButton SupprimerBtn;
+    private emp.empHome empHome1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
