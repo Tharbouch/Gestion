@@ -93,7 +93,7 @@
               <Font name="Segoe UI" size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="f3" green="eb" red="e4" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="COMPANY STATUS"/>
           </Properties>
@@ -304,7 +304,7 @@
                   <Font name="Segoe UI" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="f3" green="eb" red="e4" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Id "/>
               </Properties>
@@ -315,7 +315,7 @@
                   <Font name="Segoe UI" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="f3" green="eb" red="e4" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nom"/>
               </Properties>
@@ -326,7 +326,7 @@
                   <Font name="Segoe UI" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="f3" green="eb" red="e4" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Adresse"/>
               </Properties>
@@ -337,7 +337,7 @@
                   <Font name="Segoe UI" size="24" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                  <Color blue="f3" green="eb" red="e4" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="PhoneNumber"/>
               </Properties>

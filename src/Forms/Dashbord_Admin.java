@@ -1,6 +1,7 @@
 
 package Forms;
 
+import Login.Login;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.*;
@@ -315,6 +316,8 @@ public class Dashbord_Admin extends javax.swing.JFrame {
     private void sedeconnecterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sedeconnecterMouseClicked
         // TODO add your handling code here:
         dispose();
+        Login l = new Login() ;
+        l.setVisible(true);
     }//GEN-LAST:event_sedeconnecterMouseClicked
 
     private void sedeconnecterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sedeconnecterActionPerformed
