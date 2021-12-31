@@ -24,13 +24,10 @@ public class EmployeAcceuil extends javax.swing.JFrame {
     public EmployeAcceuil() {
         initComponents();
         EmployeAcceuil EmployeAcceuil ;
+        Login l = new Login();
+        jLabel14.setText(l.getPrenom());
+        jLabel12.setText(l.getNom());
         
-        connect connection = new connect();
-        connection.connectDb();
-        try {
-            
-        } catch (Exception e) {
-        }
        
     }
     
@@ -60,6 +57,7 @@ public class EmployeAcceuil extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(420, 180));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(27, 36, 44));
@@ -99,6 +97,11 @@ public class EmployeAcceuil extends javax.swing.JFrame {
         HomeBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         HomeBtn.setForeground(new java.awt.Color(228, 235, 243));
         HomeBtn.setText("Home");
+        HomeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeBtnMouseClicked(evt);
+            }
+        });
         HomeBtn.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 HomeBtnKeyPressed(evt);
@@ -239,6 +242,13 @@ public class EmployeAcceuil extends javax.swing.JFrame {
         Login l = new Login() ;
         l.setVisible(true);
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void HomeBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeBtnMouseClicked
+         jPanel4.removeAll();
+        empHome sp = new empHome();
+        jPanel4.add(sp);
+        sp.setVisible(true);
+    }//GEN-LAST:event_HomeBtnMouseClicked
 
     /**
      * @param args the command line arguments

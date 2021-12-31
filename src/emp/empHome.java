@@ -18,6 +18,9 @@ public class empHome extends javax.swing.JInternalFrame {
      */
     public empHome() {
         initComponents();
+        countProduct();
+        countFournisseur();
+        countCategory();
         ((javax.swing.plaf.basic.BasicInternalFrameUI) this.getUI()).setNorthPane(null);
         getdata();
     }
@@ -215,7 +218,7 @@ public class empHome extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(466, 466, 466)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(321, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,7 +240,7 @@ public class empHome extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,7 +278,7 @@ public void countProduct(){
         connection.connectDb();
         try{
             
-            String sql = "SELECT * FROM COMPANY";
+            String sql = "SELECT DISTINCT(*) FROM COMPANY";
             connection.stm = connection.connect.createStatement();
             
             connection.result = connection.stm.executeQuery(sql);
@@ -284,7 +287,7 @@ public void countProduct(){
             
             int count = connection.result.getInt(1);
             
-            jLabel2.setText(""+count);
+            jLabel5.setText(""+count);
             
             connection.deconnectDb();
             

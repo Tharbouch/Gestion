@@ -1,6 +1,7 @@
 package emp;
 
 
+import Login.Login;
 import Login.connect;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -154,7 +155,7 @@ public class supprime extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int selectedRowIndex = jTable1.getSelectedRow();
         TableModel model = jTable1.getModel();
-        id = Integer.parseInt((model.getValueAt(selectedRowIndex, 0)));
+        id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
@@ -171,6 +172,11 @@ public class supprime extends javax.swing.JInternalFrame {
             int n = connection.preparedstm.executeUpdate();
             if (n==1) {
             JOptionPane.showMessageDialog(null,"Record Deleted");
+            Login l = new Login();
+            String op = "Supprimer Produit";
+            String sql2 = "INSERT INTO OPERATION (EMPID, EMPNAME, EMPFIRSTNAME, OPERATION) values("+l.getUsernameId()+",'"+l.getNom()+"','"+l.getPrenom()+"','"+op+"')";
+            connection.preparedstm = connection.connect.prepareStatement(sql);
+            setOrder();
             getdata();
         }
             else {
@@ -215,6 +221,19 @@ public void getdata(){
         }
         catch(Exception e) {System.out.println(e);
     }   
+    }
+private void setOrder(){
+        connect connection = new connect();
+        connection.connectDb();
+        try {
+                Login l = new Login();
+                String op = "Supprimer Produit";
+                String sql2 = "INSERT INTO OPERATION (EMPID, EMPNAME, EMPFIRSTNAME, OPERATION) values("+l.getUsernameId()+",'"+l.getNom()+"','"+l.getPrenom()+"','"+op+"')";
+                connection.preparedstm = connection.connect.prepareStatement(sql2);
+                connection.preparedstm.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton4;

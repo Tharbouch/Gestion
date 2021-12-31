@@ -15,7 +15,33 @@ import javax.swing.JOptionPane;
  */
 public class Login extends javax.swing.JFrame {
     
-    public int usernameId;
+
+    public int getUsernameId() {
+        return usernameId;
+    }
+
+    public void setUsernameId(int usernameId) {
+        this.usernameId = usernameId;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+    public static int usernameId;
+    public static String nom;
+    public static String prenom;
     /**
      * Creates new form Login
      */
@@ -187,7 +213,10 @@ public class Login extends javax.swing.JFrame {
                     adminInterface.setVisible(true);
                 }
                 else{
-                    usernameId= results.getInt("UserId");
+                    setUsernameId(results.getInt("UserId"));
+                    setNom(results.getString("NOM"));
+                    setPrenom(results.getString("PRENOM"));
+                    
                     close();
                     EmployeAcceuil employeeInterface = new EmployeAcceuil();
                     employeeInterface.setVisible(true);
